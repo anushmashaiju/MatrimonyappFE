@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { GoogleOAuthProvider, GoogleLogin } from '@react-oauth/google';
+import axios from 'axios';
 import '../Pages/pages.css';
 
-const clientId = 'YOUR_GOOGLE_CLIENT_ID';
+const clientId ='353235404098-b2bnk8pk1ciq0lvcsnouioggon4t2p1k.apps.googleusercontent.com';
 
 function Login() {
   const [email, setEmail] = useState('');
@@ -13,17 +14,15 @@ function Login() {
   const handleEmailPasswordLogin = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch('/auth/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email, password }),
+      const response = await axios.post('http://localhost:8000/auth/login', {
+        email,
+        password,
       });
 
-      if (response.ok) {
-        const data = await response.json();
+      if (response.status === 200) {
+        const data = response.data;
         console.log('User logged in:', data);
+        localStorage.setItem('token', data.token);
         navigate('/dashboard');
       } else {
         console.error('Login failed');
@@ -35,9 +34,26 @@ function Login() {
     }
   };
 
-  const handleGoogleLoginSuccess = (response) => {
-    console.log('[Google Login Success]', response);
-    navigate('/dashboard');
+  const handleGoogleLoginSuccess = async (response) => {
+    try {
+      // Exchange the Google ID token for a JWT token from your server
+      const res = await axios.post('http://localhost:8000/auth/google', {
+        token: response.credential,
+      });
+
+      if (res.status === 200) {
+        const data = res.data;
+        console.log('[Google Login Success]', data);
+        localStorage.setItem('token', data.token);
+        navigate('/subscription');
+      } else {
+        console.error('Google login failed');
+        alert('Google login failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('[Google Login Failure]', error);
+      alert('Google login failed. Please try again.');
+    }
   };
 
   const handleGoogleLoginFailure = (error) => {
@@ -52,7 +68,12 @@ function Login() {
         <form onSubmit={handleEmailPasswordLogin}>
           <div>
             <label>Email:</label>
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
           </div>
           <div>
             <label>Password:</label>
