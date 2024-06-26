@@ -37,22 +37,19 @@ function Signup() {
 
       if (response.status === 201) {
         console.log('User created:', response.data);
-        navigate('/login');
+        navigate('/');
       } else {
         console.error('Signup failed');
         setError('Signup failed. Please try again.');
       }
     } catch (error) {
       if (error.response) {
-        // The request was made and the server responded with a status code outside the 2xx range
         console.error('Error response:', error.response);
         setError(error.response.data.message || 'An error occurred. Please try again.');
       } else if (error.request) {
-        // The request was made but no response was received
         console.error('Error request:', error.request);
         setError('No response from the server. Please try again later.');
       } else {
-        // Something else happened in setting up the request
         console.error('Error:', error.message);
         setError('An error occurred. Please try again.');
       }
