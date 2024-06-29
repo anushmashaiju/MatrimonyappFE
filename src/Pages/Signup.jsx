@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import '../Pages/pages.css';
@@ -7,8 +7,6 @@ function Signup() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
   const [gender, setGender] = useState('');
-  const [phone, setPhone] = useState('');
-  const [dob, setDob] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -29,15 +27,13 @@ function Signup() {
         firstName,
         lastName,
         gender,
-        phone,
-        dob,
         email,
         password
       });
 
       if (response.status === 201) {
         console.log('User created:', response.data);
-        navigate('/');
+        navigate('/otpverify');
       } else {
         console.error('Signup failed');
         setError('Signup failed. Please try again.');
@@ -55,10 +51,23 @@ function Signup() {
       }
     }
   };
+  const handleGoogleLogin = () => {
+    window.location.href = 'http://localhost:8000/auth/google';
+  };
+  useEffect(() => {
+    const checkGoogleAuth = () => {
+      const params = new URLSearchParams(window.location.search);
+      if (params.get('auth') === 'google') {
+        navigate('/otpverify');
+      }
+    };
+
+    checkGoogleAuth();
+  }, [navigate]);
 
   return (
     <div className="container">
-      <h2>Welcome to Learnbuds Matrimony</h2>
+      <h2>Welcome to Learnbuds</h2>
       <h3>Signup</h3>
       {error && <div className="error">{error}</div>}
       <form onSubmit={handleSubmit}>
@@ -81,17 +90,7 @@ function Signup() {
               <option value="female">Female</option>
               <option value="other">Other</option>
             </select>
-          </div>
-          <div className="column">
-            <label>Date of Birth:</label>
-            <input type="date" value={dob} onChange={(e) => setDob(e.target.value)} required />
-          </div>
-        </div>
-        <div className="row">
-          <div className="column">
-            <label>Phone Number:</label>
-            <input type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} required />
-          </div>
+          </div>         
           <div className="column">
             <label>Email:</label>
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
@@ -109,8 +108,11 @@ function Signup() {
         </div>
         <button type="submit">Signup</button>
       </form>
+      <p>OR </p>
+      <button onClick={handleGoogleLogin}>Login with Google</button>
       <p>Already have an account? <a href="/">Login</a></p>
     </div>
+   
   );
 }
 
