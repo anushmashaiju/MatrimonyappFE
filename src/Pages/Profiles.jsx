@@ -5,7 +5,6 @@ import axios from 'axios';
 const Profile = () => {
   const [profile, setProfile] = useState({
     basicDetails: {
-
       age: '',
       dateOfBirth: '',
       qualification: '',
@@ -46,30 +45,27 @@ const Profile = () => {
 
     const formData = new FormData();
     Object.keys(profile.basicDetails).forEach(key => {
-        if (key === 'multipleImages') {
-            for (let i = 0; i < profile.basicDetails[key].length; i++) {
-                formData.append(key, profile.basicDetails[key][i]);
-            }
-        } else {
-            formData.append(key, profile.basicDetails[key]);
+      if (key === 'multipleImages') {
+        for (let i = 0; i < profile.basicDetails[key].length; i++) {
+          formData.append(key, profile.basicDetails[key][i]);
         }
+      } else {
+        formData.append(key, profile.basicDetails[key]);
+      }
     });
 
     try {
-        const response = await axios.post('http://localhost:8000/user/profile', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-            },
-        });
-        console.log('Response:', response.data); // Log response for debugging
-        navigate('/employment', { state: { profile } });
+      const response = await axios.post('http://localhost:8000/user/profile', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+      console.log('Response:', response.data);
+      navigate('/employment', { state: { profile } });
     } catch (error) {
-        console.error('Error submitting the form', error); // Log error details
+      console.error('Error submitting the form', error);
     }
-};
-
-
-
+  };
 
   return (
     <form onSubmit={handleSubmit}>
@@ -108,7 +104,7 @@ const Profile = () => {
         <input
           type="text"
           placeholder="Age"
-          value={profile.age}
+          value={profile.basicDetails.age}
           onChange={(e) => handleChange('age', e.target.value)}
         />
         <input
