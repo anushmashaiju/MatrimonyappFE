@@ -1,0 +1,57 @@
+.profiles-container {
+  padding: 40px;
+  background-image: url('C:\Users\dell\Desktop\module2 Matrimony\fe\public\Images\mrgg.avif');
+  background-size:cover; /* This ensures the image covers the entire background */
+  background-position:top; /* This centers the image */
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.filter-inputs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-inputs input,
+.filter-inputs button {
+  padding: 10px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.filter-inputs button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.filter-inputs button:hover {
+  background-color: #0056b3;
+}
+
+.profiles-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.profile-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  width: calc(33.333% - 20px);
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+
+.profile-card h3 {
+  margin-top: 0;
+}
+
+.profile-card p {
+  margin: 5px 0;
+}

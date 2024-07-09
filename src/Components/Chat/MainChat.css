@@ -1,0 +1,19 @@
+.main-chat {
+    display: flex;
+    height: 100vh;
+  }
+  
+  .chat-sidebar {
+    width: 300px;
+    border-right: 1px solid #ccc;
+    overflow-y: auto;
+  }
+  
+  .chat-content {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  

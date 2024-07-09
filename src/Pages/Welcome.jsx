@@ -1,28 +1,30 @@
-// Welcome.jsx
-
 import React from 'react';
-import { Container, Row, Col, Button, Form } from 'react-bootstrap'; // Assuming you're using React Bootstrap for styling
-import './Welcome.css'; // Assuming you're using an external CSS file for custom styles
+import { useNavigate } from 'react-router-dom';
 
 const Welcome = () => {
+    const navigate = useNavigate();
+    
+    const handleNextClick = () => {
+        navigate('/home'); // Redirect to the next page
+     };
+    const handleYesClick = () => {
+        navigate('/home');
+    };
+
+    const handleNoClick = () => {
+        navigate('/relationship');
+    };
+
     return (
         <div className="welcome-background">
-            <Container>
-                <Row className="mt-5">
-                    <Col md={{ span: 8, offset: 2 }} className="text-center text-light">
-                        <h1>Welcome to Learn buds Matrimony</h1>
-                        <p className="lead mt-3">
-                            Find your perfect match with us. Start your journey towards a lifelong partnership today.
-                        </p>
-                        
-                            <Button variant="primary" type="submit" className="mt-3">
-                                Create Profile
-                            </Button>
-                       
-                    </Col>
-                </Row>
-            </Container>
-        </div>
+            <div>
+            <h1>Welcome to Matrimony App!</h1>
+                <p>Are you interested in exploring the Matrimony App?</p>
+                <button className='' onClick={handleYesClick}>Yes</button>
+                <button  onClick={handleNoClick}>No</button>
+         </div>
+         <button className='nextbutton' onClick={handleNextClick}>skip</button>
+</div>
     );
 };
 

@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import '../Pages/pages.css';
+
 
 function Signup() {
   const [firstName, setFirstName] = useState('');
   const [lastName, setLastName] = useState('');
-  const [gender, setGender] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -26,7 +25,6 @@ function Signup() {
       const response = await axios.post('http://localhost:8000/auth/signup', {
         firstName,
         lastName,
-        gender,
         email,
         password
       });
@@ -81,16 +79,7 @@ function Signup() {
             <input type="text" value={lastName} onChange={(e) => setLastName(e.target.value)} required />
           </div>
         </div>
-        <div className="row">
-          <div className="column">
-            <label>Gender:</label>
-            <select value={gender} onChange={(e) => setGender(e.target.value)} required>
-              <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-          </div>         
+        <div className="row">        
           <div className="column">
             <label>Email:</label>
             <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
@@ -106,11 +95,11 @@ function Signup() {
             <input type="password" value={confirmPassword} onChange={(e) => setConfirmPassword(e.target.value)} required />
           </div>
         </div>
-        <button type="submit">Signup</button>
-      </form>
+        <button className="button3" type="submit">Signup</button>
       <p>OR </p>
-      <button onClick={handleGoogleLogin}>Login with Google</button>
+      <button className="button3" onClick={handleGoogleLogin}>Login with Google</button>
       <p>Already have an account? <a href="/">Login</a></p>
+      </form>
     </div>
    
   );

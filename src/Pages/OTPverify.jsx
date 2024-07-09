@@ -30,7 +30,7 @@ function OTPverify() {
       if (response.data.message === 'OTP verified successfully') {
         setIsVerified(true);
         alert('OTP verified successfully!');
-        navigate('/profile'); // Redirect to profile page
+        navigate('/register'); // Redirect to profile page
       } else {
         alert('Invalid OTP.');
       }

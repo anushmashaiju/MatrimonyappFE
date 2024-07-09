@@ -1,7 +1,6 @@
 import React, { useState} from 'react';
 import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import '../Pages/pages.css';
+import { useNavigate } from 'react-router-dom';  
 
 function Loginuser() {
   const [email, setEmail] = useState('');
@@ -19,7 +18,7 @@ function Loginuser() {
       if (response.status === 200) {
         const data = response.data;
         console.log('User logged in:', data);
-        navigate('/profile');
+        navigate('/register');
       } else {
         console.error('Login failed');
         alert('Login failed. Please try again.');
@@ -48,7 +47,7 @@ function Loginuser() {
           <label>Password:</label>
           <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
         </div>
-        <button className='button1' type="submit">Login</button>
+        <button type="submit">Login</button>
       </form>
       <p>Don't have an account? <a href="/signup">Signup</a></p>
     </div>

@@ -115,7 +115,7 @@ const Employment = () => {
                     <button type="submit">Submit</button>
                 )}
             </form>
-            <button className='nextbutton' onClick={handleNextClick}>next</button>
+            <button className='nextbutton' onClick={handleNextClick}>skip</button>
         </div>
     );
 };
