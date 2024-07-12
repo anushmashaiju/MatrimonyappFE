@@ -25,9 +25,6 @@ const Register = () => {
     },
   });
 
-
-
-
   const handleChange = (field, value) => {
     setProfile(prevState => ({
       ...prevState,
