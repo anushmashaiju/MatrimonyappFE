@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import io from 'socket.io-client';
+//import io from 'socket.io-client';
 import './Chat.css'; // Import the CSS file
 
-const socket = io('http://localhost:8000'); // Replace with your server URL
+//const socket = io('http://localhost:8000'); // Replace with your server URL
 
 const ChatComponent = ({ sender, receiver }) => {
   const { userId } = useParams(); // Get userId from route params (unused in this example)
@@ -16,12 +16,12 @@ const ChatComponent = ({ sender, receiver }) => {
       document.body.classList.remove('body-background'); // Remove background class from body on unmount
     };
   }, []);
-  useEffect(() => {
+  /*useEffect(() => {
     socket.on('chat message', (msg) => {
       setMessages([...messages, msg]);
     });
   }, [messages]);
-
+*/
   const sendMessage = () => {
     if (message.trim() !== '') {
       const msg = {
@@ -30,10 +30,10 @@ const ChatComponent = ({ sender, receiver }) => {
         text: message,
         time: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }), // Add time
       };
-      socket.emit('chat message', msg);
+    /*  socket.emit('chat message', msg);
       setMessages([...messages, msg]);
       setMessage('');
-    }
+    }*/
   };
 
   return (
@@ -63,5 +63,5 @@ const ChatComponent = ({ sender, receiver }) => {
     </div>
   );
 };
-
+}
 export default ChatComponent;

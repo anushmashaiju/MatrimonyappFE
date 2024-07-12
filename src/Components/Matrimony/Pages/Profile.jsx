@@ -84,7 +84,7 @@ const Profile = () => {
             <div className="container">
                 <div className="profile-header">
                     <div className="profile-pic">
-                        {/* Display profile picture */}
+                        {/* Display profile picture*/ }
                         {basicDetails.profilePicture ? (
                             <img src={basicDetails.profilePicture} alt="Profile" />
                         ) : (
