@@ -1,32 +1,32 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes} from 'react-router-dom';
-import Signup from './Pages/Signup';
-import './App.css'
-import OTPverify from './Pages/OTPverify';
-import Employment from './Pages/Employment';
-import Relationship from './Pages/Relationship';
-import Loginuser from './Pages/Loginn';
-import Welcome from './Pages/Welcome';
-import Register from './Pages/Register';
-import Create from './Pages/Create';
-import PartnerPreference from './Pages/Preference';
-import ProfilesComponent from './Components/Home';
-import ProfileDetails from './Components/ProfileDetails';
 
-import BranchNavbar from './Components/BranchNavbar';
-import Profile from './Pages/Profile';
+import './App.css'
+
+import Signup from './Components/MainPages/Signup';
+import Loginuser from './Components/MainPages/Loginn';
+import OTPverify from './Components/MainPages/OTPverify';
+import Register from './Components/MainPages/Register';
+import Employment from './Components/MainPages/Employment';
+import Create from './Components/Matrimony/Pages/Create';
+import PartnerPreference from './Components/Matrimony/Pages/Preference';
+import HomeList from './Components/Matrimony/Pages/HomeList';
+import Profile from './Components/Matrimony/Pages/Profile';
+import Relationship from './Components/MainPages/Relationship';
+import Welcome from './Components/MainPages/Welcome';
+import BranchNavbar from './Components/Matrimony/BranchNavbar';
 import ChatComponent from './Components/Chat/Chat';
 import ChatListComponent from './Components/Chat/ChatList';
 import MainChatComponent from './Components/Chat/MainChat';
+import Subscription from './Components/Matrimony/Pages/Subscription';
 
-import { AdminAuth, LoginAuth, UserAuth } from './Authorisation/authorization';
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-        <Route element={<LoginAuth/>}>
+      
           <Route path="/" element={<Loginuser/>} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/otpverify" element={<OTPverify/>} />
@@ -36,14 +36,15 @@ function App() {
           <Route path="/matrimony" element={<Welcome/>} />    
           <Route path="/create" element={<Create/>} />
           <Route path="/preference" element={<PartnerPreference/>} />
-          <Route path="/home" element={<ProfilesComponent/>} />
-          <Route path="/create/:id" element={<ProfileDetails />} />
+          <Route path="/homelist" element={<HomeList/>} />
           <Route path="/branch" element={<BranchNavbar />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/chat" element={<ChatComponent />} />
           <Route path="/chatlist" element={<ChatListComponent />} />
           <Route path="/mainchat" element={<MainChatComponent />} />
-          </Route>
+          <Route path="/subscription" element={<Subscription />} />
+          <Route path="/homelist" element={<HomeList />} />
+     
         </Routes>
       </div>
     </Router>

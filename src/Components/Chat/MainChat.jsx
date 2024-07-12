@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import ChatListComponent from './ChatList';
 import ChatComponent from './Chat';
 import './MainChat.css';
-import MainNavbar from '../MainNavbar';
+import MainNavbar from '../Matrimony/MainNavbar';
 
 const MainChatComponent = () => {
   const [users, setUsers] = useState([

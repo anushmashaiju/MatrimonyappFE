@@ -1,3 +1,10 @@
+
+.body-background {
+  background-image:url('C:\Users\dell\Desktop\module2 Matrimony\fe\public\Images\mrgg.avif'); /* Replace with the path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
 .main-chat {
     display: flex;
     height: 100vh;

@@ -1,0 +1,23 @@
+.custom-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    z-index: 1050; /* Ensure modal is above other content */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5); /* Optional: Add shadow for better visibility */
+    width: 70%; /* Adjust width as needed */
+    max-width: 600px; /* Optional: Set maximum width */
+  }
+  
+  .custom-modal .modal-header {
+    border-bottom: none; /* Optional: Remove border bottom from header */
+  }
+  
+  .custom-modal .modal-footer {
+    border-top: none; /* Optional: Remove border top from footer */
+  }
+  

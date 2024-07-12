@@ -1,0 +1,75 @@
+.body-background {
+    background-image:url('C:\Users\dell\Desktop\module2 Matrimony\fe\public\Images\mrgg.avif'); /* Replace with the path to your image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+  .profile-form {
+    padding-top: 50px;
+    max-width: 600px;
+    margin: 0 auto;  
+  }
+  
+  .form-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+  }
+  
+  .form-group input,
+  .form-group select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+  }
+  
+  .form-group input[type="number"] {
+    -moz-appearance: textfield;
+  }
+  
+  .form-group input[type="number"]::-webkit-outer-spin-button,
+  .form-group input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+  
+  .submit-button,
+  .nextbutton {
+    display: inline-block;
+    padding: 10px;
+    margin: 10px 1%;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .submit-button:hover,
+  .nextbutton:hover {
+    background-color: #0056b3;
+  }
+  
+  @media (max-width: 768px) {
+    .submit-button,
+    .nextbutton {
+      width: 100%;
+      margin: 10px 0;
+    }
+  }
+  

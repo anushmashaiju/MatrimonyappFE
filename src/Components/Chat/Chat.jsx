@@ -9,7 +9,13 @@ const ChatComponent = ({ sender, receiver }) => {
   const { userId } = useParams(); // Get userId from route params (unused in this example)
   const [message, setMessage] = useState('');
   const [messages, setMessages] = useState([]);
+  useEffect(() => {
+    document.body.classList.add('body-background'); // Add background class to body
 
+    return () => {
+      document.body.classList.remove('body-background'); // Remove background class from body on unmount
+    };
+  }, []);
   useEffect(() => {
     socket.on('chat message', (msg) => {
       setMessages([...messages, msg]);

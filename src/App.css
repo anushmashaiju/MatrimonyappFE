@@ -197,17 +197,7 @@ a:hover {
 .submit-button:hover {
   background-color: #0056b3;
 }
-.profile-form {
-  padding: 40px;
-  max-width: 600px;
-  margin: 0 auto;  
-  background-image: url('C:\Users\dell\Desktop\module2 Matrimony\fe\public\Images\mrgg.avif');
-  background-size:cover; /* This ensures the image covers the entire background */
-  background-position:center; /* This centers the image */
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  overflow-y:auto;
-}
+
 .register-container{
   width: 100%;
   max-width: 600px; /* Increased to accommodate two columns */

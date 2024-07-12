@@ -19,7 +19,7 @@ export function AdminAuth(){
 export function LoginAuth() {
     const token=localStorage.getItem('token')
     return(
-        token ? <Navigate to ='/home'/> :<Outlet/>   //if token present navigate to home page otherwise go to outlet
+        token ? <Navigate to ='/homelist'/> :<Outlet/>   //if token present navigate to home page otherwise go to outlet
     )
     
 }

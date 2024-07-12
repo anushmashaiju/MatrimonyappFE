@@ -1,0 +1,102 @@
+.body-background {
+    background-image:url('C:\Users\dell\Desktop\module2 Matrimony\fe\public\Images\mrgg.avif'); /* Replace with the path to your image */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  }
+.row1 {
+    display: flex;
+    width: 100%;
+}
+
+.col-left {
+    width: 260px; /* Fixed width for the sidebar */
+    padding: 60px;
+    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: fixed; /* Fixed positioning */
+    left: 0; /* Aligns to the left margin */
+    top: 0; /* Aligns to the top of the viewport */
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Scrollable content if needed */
+    z-index: 1; /* Ensures it stays on top of other elements */
+
+}
+
+.col-right {
+    flex: 1;
+}
+
+.sidebar1 {
+    padding: 10px;
+   
+}
+
+.sidebar1 h5 {
+    margin-bottom: 20px;
+}
+
+.sidebar1 ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.sidebar1 ul li {
+    margin-bottom: 10px;
+}
+
+.sidebar1 ul li a {
+    text-decoration: none;
+    color:  green;
+}
+
+.sidebar1 ul li a:hover {
+    text-decoration:none;
+}
+
+.content h4 {
+    margin-bottom: 20px;
+}
+
+.form-group1 {
+    margin-bottom: 20px;
+}
+
+.form-group1 label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group1 select,
+.form-group1 textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+}
+
+.nextbutton1 {
+    width:100px;  
+    cursor: pointer;
+    position:fixed;
+    right: 100px; /* Adjust as needed */
+    bottom: 20px; /* Adjust as needed */
+    
+}
+.content1{
+    margin-top: 50px;
+}
+.form-group1 .age-range {
+    display: flex;
+    align-items: center;
+}
+
+.form-group1 .age-range input {
+    width: 80px; /* Adjust width as per your design */
+    margin-right: 10px; /* Spacing between inputs */
+}
+
+.form-group1 .age-range-separator {
+    margin: 0px 15px 15px 10px; /* Space around the separator */
+}
