@@ -26,7 +26,7 @@ const Profile = () => {
     useEffect(() => {
         const fetchBasicDetails = async (userId) => {
             try {
-                const response = await axios.get(`http://localhost:8000/user/register-details/${userId}`);
+                const response = await axios.get(`http://localhost:8000/user/register-details/${userId}}`,{ withCredentials: true })
                 setBasicDetails(response.data);
                 console.log(response);
             } catch (error) {
@@ -36,7 +36,7 @@ const Profile = () => {
 
         const fetchPersonalDetails = async (userId) => {
             try {
-                const response = await axios.get(`http://localhost:8000/user/personal-details/${userId}`);
+                const response = await axios.get(`http://localhost:8000/user/personal-details/${userId}`,{ withCredentials: true });
                 setPersonalDetails(response.data);
                 console.log(response);
             } catch (error) {
@@ -46,7 +46,7 @@ const Profile = () => {
 
         const fetchPartnerPreferences = async (userId) => {
             try {
-                const response = await axios.get(`http://localhost:8000/user/partnerpreferences/${userId}`);
+                const response = await axios.get(`http://localhost:8000/user/partnerpreferences/${userId}`,{ withCredentials: true });
                 setPartnerPreferences(response.data);
             } catch (error) {
                 console.error('Error fetching partner preferences:', error);
@@ -54,12 +54,12 @@ const Profile = () => {
         };
 
         // Assuming userId is obtained from your authentication or props
-        const userId = '669012aec58dc2bb18775363';
+
 
         // Call the functions to fetch data
-        fetchBasicDetails(userId);
-        fetchPersonalDetails(userId);
-        fetchPartnerPreferences(userId);
+        fetchBasicDetails();
+        fetchPersonalDetails();
+        fetchPartnerPreferences();
     }, []);
 
     const handleEdit = () => {

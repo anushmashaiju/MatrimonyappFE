@@ -17,19 +17,7 @@ const HomeList = () => {
     };
   }, []);
 
-  useEffect(() => {
-    const fetchProfiles = async () => {
-      try {
-        const response = await axios.get('http://localhost:8000/user/opposite-gender-profiles', { withCredentials: true });
-        setProfiles(response.data);
-      } catch (error) {
-        console.error('Error fetching profiles:', error);
-      }
-    };
-
-    fetchProfiles();
-  }, []);
-
+ 
   const handleFilterChange = (event) => {
     const { name, value } = event.target;
     setFilterCriteria(prevState => ({

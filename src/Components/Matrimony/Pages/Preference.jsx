@@ -89,7 +89,7 @@ const PartnerPreference = () => {
             const response = await axios.post('http://localhost:8000/user/preferences', {preferences},{withCredentials: true});
             console.log('Preferences created successfully', response.data);
             dispatch(setPartnerPreferences(preferences)); // Dispatch preferences to Redux store
-            navigate('/profile');
+            navigate('/profile:userId');
         } catch (error) {
             console.error('Error creating preferences:', error.response ? error.response.data : error.message);
         }

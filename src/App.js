@@ -38,7 +38,7 @@ function App() {
           <Route path="/preference" element={<PartnerPreference/>} />
           <Route path="/homelist" element={<HomeList/>} />
           <Route path="/branch" element={<BranchNavbar />} />
-          <Route path="/profile" element={<Profile />} />
+          <Route path="/profile" element={<Profile/>} />
           <Route path="/chat" element={<ChatComponent />} />
           <Route path="/chatlist" element={<ChatListComponent />} />
           <Route path="/mainchat" element={<MainChatComponent />} />
