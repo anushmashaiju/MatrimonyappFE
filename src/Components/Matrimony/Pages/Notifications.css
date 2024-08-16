@@ -1,0 +1,71 @@
+/* MainNavbar.css or AlertBox.css */
+.alert-box {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #f8d7da; /* Light red background */
+  color: #721c24; /* Dark red text */
+  padding: 10px 15px;
+  border-bottom: 2px solid #f5c6cb; /* Light red border */
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Shadow for a lifted effect */
+  transition: opacity 0.3s ease;
+}
+
+.alert-box.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.message {
+  flex: 1;
+}
+
+
+.accept-btn, .reject-btn {
+
+  background: #ffffff; /* White background for buttons */
+  border: 1px solid #ddd; /* Light border for buttons */
+  color: #721c24; /* Dark red text */
+  padding: 5px 10px; /* Padding for buttons */
+  cursor: pointer; /* Pointer cursor on hover */
+  font-size: 12px; /* Smaller font size for buttons */
+  border-radius: 3px; /* Rounded corners */
+  transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition effects */
+}
+
+.accept-btn:hover {
+  background-color: #d4edda; /* Light green background on hover */
+  color: #155724; /* Dark green text on hover */
+}
+
+.reject-btn:hover {
+  background-color: #f5c6cb; /* Light red background on hover */
+  color: #721c24; /* Dark red text on hover */
+}
+
+.close-alert {
+  position: absolute;
+  margin-top: 50px;
+top: 10px; /* Distance from the bottom */
+ left: 600px; /* Distance from the right */
+  background: none;
+  border: none;
+  font-size: 20px; /* Smaller font size for the close button */
+  cursor: pointer;
+  color: #721c24;
+  transition: color 0.3s ease;
+}
+
+.close-alert:hover {
+  color: #f5c6cb; /* Light red color on hover */
+
+  background: none;
+}
+.notification-buttons{
+  display: flex;
+  gap: 10px; /* Space between buttons */
+}

@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './MainNavbar.css';
-import BranchNavbar from './BranchNavbar';
+import Notifications from './Pages/Notifications'; // Assuming Notifications is the component you provided
+import './MainNavbar.css'; // Ensure this file includes the new styles
+import '../Matrimony/Pages/Notifications.css';
 
-function MainNavbar({ onNotificationClick }) {
+
+function MainNavbar() {
     const [isNavOpen, setIsNavOpen] = useState(false);
     const [showBranchNavbar, setShowBranchNavbar] = useState(false);
     const [showSearchBar, setShowSearchBar] = useState(false);
+    const [showAlertBox, setShowAlertBox] = useState(false); // New state for alert box
+    const [notificationContent, setNotificationContent] = useState(''); // New state for alert content
     const navigate = useNavigate();
 
     const handleNavigate = (path) => {
@@ -25,43 +29,50 @@ function MainNavbar({ onNotificationClick }) {
     };
 
     const handleNotificationClick = () => {
-        setShowBranchNavbar(!showBranchNavbar);
+        // Simulate fetching notifications
+        setNotificationContent(<Notifications />);
+        setShowAlertBox(true);
     };
 
+    const handleCloseAlertBox = () => {
+        setShowAlertBox(false);
+    };
     const handleSearchClick = () => {
         setShowSearchBar(!showSearchBar);
     };
-
     return (
         <>
-            <nav className="navbar">
+            {showAlertBox && (
+                <div className={`alert-box ${!showAlertBox ? 'hide' : ''}`}>
+                    <div className="alert-content">
+                        {notificationContent}
+                    </div>
+                    <button className="close-alert" onClick={handleCloseAlertBox}>×</button>
+                </div>
+            )}
+            <nav className="mainnavbar">
                 <div className="container3">
-                    <div className="navbar-brand" onClick={() => handleNavigate('/homelist')}>
+                    <div className="mainnavbar-brand" onClick={() => handleNavigate('/homelist')}>
                         Matrimony
                     </div>
-                    <div className="navbar-toggle" onClick={toggleNavbar}>
+                    <div className="mainnavbar-toggle" onClick={toggleNavbar}>
                         ☰
                     </div>
-                    <div className={`navbar-collapse ${isNavOpen ? 'show' : ''}`} id="basic-navbar-nav">
-                        <ul className="nav">
-                            <li className="nav-item"><a onClick={() => handleNavigate('/homelist')}>Home</a></li>
-                            <li className="nav-item"><a onClick={() => handleNavigate('/matches')}>Matches</a></li>
-                            <li className="nav-item"><a onClick={() => handleNavigate('/mainchat')}>Chat</a></li>
-                            <li className="nav-item"><a onClick={handleSearchClick}>Search</a></li>
-                            <li className="nav-item"><a onClick={handleNotificationClick}>Notification</a></li>
-                            {showBranchNavbar && <BranchNavbar />}
-                            <li className="nav-item"><a onClick={() => handleNavigate('/subscription')}>Upgrade Now</a></li>
-                            <li className="nav-item"><a onClick={() => handleNavigate('/preference')}>Preference</a></li>
-                            <li className="nav-item"><a onClick={() => handleNavigate('/create')}>Create</a></li>
-                            <li className="nav-item"><a onClick={() => handleNavigate('/profile')}>Profile</a></li>
-                            <li className="nav-item dropdown">
-                                <a className="dropdown-toggle">Dropdown</a>
+                    <div className={`mainnavbar-collapse ${isNavOpen ? 'show' : ''}`} id="basic-navbar-nav">
+                        <ul className="mainnav">
+                            <li className="mainnav-item"><a onClick={() => handleNavigate('/homelist')}>Home</a></li>
+                            <li className="mainnav-item"><a onClick={handleNotificationClick}>Notification</a></li>
+                            <li className="mainnav-item"><a onClick={() => handleNavigate('/chatpage')}>Chat</a></li>
+                            <li className="mainnav-item"><a onClick={handleSearchClick}>Search</a></li>
+
+                            <li className="mainnav-item dropdown">
+                                <a className="dropdown-toggle">Settings</a>
                                 <div className="dropdown-menu">
-                                    <a onClick={() => handleNavigate('/action1')}>Action</a>
-                                    <a onClick={() => handleNavigate('/action2')}>Another action</a>
-                                    <a onClick={() => handleNavigate('/action3')}>Something</a>
+                                    <a onClick={() => handleNavigate('/create')}>Create</a>
+                                    <a onClick={() => handleNavigate('/preference')}>Preference</a>
+                                    <a onClick={() => handleNavigate('/subscription')}>Upgrade Now</a>
                                     <div className="dropdown-divider"></div>
-                                    <a onClick={() => handleNavigate('/action4')}>Separated link</a>
+                                    <a onClick={() => handleNavigate(`/profile`)}>Profile</a>
                                 </div>
                             </li>
                         </ul>

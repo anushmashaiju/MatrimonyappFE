@@ -55,7 +55,7 @@ function Signup() {
 
   return (
     <div className="container">
-      <h2>Welcome to Learnbuds</h2>
+      <h2>Welcome to Matrimony app</h2>
       <h3>Signup</h3>
       {error && <div className="error">{error}</div>}
       <form onSubmit={handleSubmit}>

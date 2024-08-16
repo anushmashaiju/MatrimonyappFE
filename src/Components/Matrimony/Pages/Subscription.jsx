@@ -57,7 +57,7 @@ const Subscription = () => {
   return (
     <><MainNavbar/>
     <div className="subscription-page">
-      <div className="header">
+      <div className="subheader">
         <h1>Upgrade now & Get upto 60% discount!</h1>
         <p>Save upto 50% on Premium Plans! Valid for limited period!</p>
       </div>

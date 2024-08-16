@@ -1,0 +1,80 @@
+.chatroom-container {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #f9f9f9;
+  position: fixed; /* Adjust positioning as needed */
+  bottom: 20px; /* Adjust positioning as needed */
+  right: 20px; /* Adjust positioning as needed */
+  width: 300px; /* Adjust width as needed */
+  max-height: 400px; /* Adjust max height as needed */
+  overflow-y: auto;
+  z-index: 1000; /* Ensure it appears above other content */
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 100%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.chat-header {
+  display: flex;
+  justify-content: space-between; /* Space out items to the edges */
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.chat-messages {
+  flex: 1;
+  overflow-y: auto;
+  margin-bottom: 10px;
+  padding-right: 10px;
+}
+
+.message {
+  margin: 8px;
+  padding: 8px;
+  border-radius: 8px;
+}
+
+.message.sent {
+  background-color: #e2f7cb;
+  align-self: flex-end;
+}
+
+.message.received {
+  background-color: #fff;
+}
+
+.chat-input {
+  display: flex;
+  align-items: center;
+}
+
+.chat-input input {
+ /* Allow the input to take up available space */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box; /* Ensure padding and border are included in width */
+  width: 250px; /* Allow input to shrink below its content size */
+}
+
+.chat-input button {
+  padding: 8px 16px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-left: 8px;
+}
+
+.chat-input button:hover {
+  background-color: #0056b3;
+}
+
+.close-icon {
+  cursor: pointer; /* Optional: to indicate it's clickable */
+  font-size: 1.5rem; /* Adjust size as needed */
+}

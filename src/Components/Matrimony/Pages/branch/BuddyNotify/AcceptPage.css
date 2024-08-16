@@ -1,0 +1,17 @@
+/* src/pages/AcceptPage.css */
+
+.brcontainer {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #f0f0f0;
+padding-top: 106px;
+  }
+  
+  .user-list {
+    flex: 1;
+    overflow-y: auto;
+    padding: 20px;
+    background-color: #fff;
+  }
+  

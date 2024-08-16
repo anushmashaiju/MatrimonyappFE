@@ -17,7 +17,7 @@ function Loginuser() {
 
             if (response.status === 200) {
                 console.log('User logged in:', response.data);
-                navigate('/register');
+                navigate('/splash');
             } else {
                 console.error('Login failed');
                 alert('Login failed. Please try again.');
@@ -30,7 +30,7 @@ function Loginuser() {
 
     return (
         <div className="container">
-            <h2>Welcome to Learnbuds</h2>
+            <h2>Welcome to Matrimony app</h2>
             <h3>Login</h3>
             <form onSubmit={handleEmailPasswordLogin}>
                 <div>

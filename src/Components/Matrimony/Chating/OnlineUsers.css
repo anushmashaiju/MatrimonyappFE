@@ -1,0 +1,47 @@
+.online-users {
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.online-users h3 {
+  margin-top: 0;
+  font-size: 1.2em;
+  color: #333;
+}
+
+.online-users ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.online-users li {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  transition: background-color 0.3s ease;
+}
+
+.online-users li:hover {
+  background-color: #e0e0e0;
+}
+
+.online-users .profileImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.online-users .status-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: green; /* Change color based on user's online status */
+  margin-right: 10px;
+  align-self: center;
+}

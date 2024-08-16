@@ -60,12 +60,17 @@ const Register = () => {
     });
   
     try {
-      const response = await axios.post('http://localhost:8000/user/register', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-        withCredentials: true, // Ensure cookies are sent
-      });
+      const response = await axios.post(
+        'http://localhost:8000/user/register',
+        formData,
+        {
+          headers: {
+            'Content-Type': 'multipart/form-data',
+            Authorization: `Bearer ${document.cookie.token}`, // Assuming the token is stored in cookies
+          },
+          withCredentials: true, // Ensure cookies are sent
+        }
+      );
   
       console.log('Response:', response.data);
   
@@ -77,11 +82,12 @@ const Register = () => {
       };
   
       dispatch(setBasicDetails(basicDetails));
-      navigate('/employment');
+      navigate('/homelist');
     } catch (error) {
       console.error('Error submitting the form', error);
     }
   };
+  
   
   return (
     <div className="register-container">

@@ -1,65 +1,112 @@
-/* src/components/HomeList.css */
-
 .body-background {
-  background-image:url('C:\Users\dell\Desktop\module2 Matrimony\fe\public\Images\mrgg.avif'); /* Replace with the path to your image */
+  background-image: url('C:/Users/dell/Desktop/module2 Matrimony/fe/public/Images/mrgg.avif'); /* Replace with the path to your image */
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
+
 .profiles-container {
-    padding: 40px;
-  
+  padding: 40px;
+}
+
+.filter-inputs {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-inputs input,
+.filter-inputs button {
+  padding: 10px;
+  font-size: 14px;
+  flex: 1;
+}
+
+.filter-inputs button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.filter-inputs button:hover {
+  background-color: #0056b3;
+}
+
+.profile-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.profile-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  box-sizing: border-box;
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1 1 calc(33.333% - 20px);
+  margin-bottom: 20px;
+}
+
+.profile-card p {
+  margin: 0 0 10px;
+}
+
+.profile-card p strong {
+  display: inline-block;
+  width: 80px;
+}
+
+.profile-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.profile-buttons button {
+  flex: 1;
+  padding: 10px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.profile-buttons button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.profile-buttons button:not(:disabled) {
+  background-color: #007bff;
+  color: white;
+}
+
+.profile-buttons button:not(:disabled):hover {
+  background-color: #0056b3;
+}
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .profile-card {
+    flex: 1 1 calc(50% - 20px);
   }
-  
+}
+
+@media (max-width: 768px) {
   .filter-inputs {
-    display: flex;
-    gap: 10px;
-    margin-bottom: 20px;
-    flex-wrap: wrap;
-  
+    flex-direction: column;
   }
-  
+
   .filter-inputs input,
   .filter-inputs button {
-    padding: 10px;
-    font-size: 14px;
-    flex: 1;
+    flex: none;
+    width: 100%;
   }
-  
-  .filter-inputs button {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
 
-  }
-  
-  .filter-inputs button:hover {
-    background-color: #0056b3;
-  }
-  
-  .profile-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-  }
-  
   .profile-card {
-    border: 1px solid #ccc;
-    padding: 15px;
-    width: calc(33.333% - 20px);
-    box-sizing: border-box;
-    cursor: pointer;
-    background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    flex: 1 1 100%;
   }
-  
-  .profile-card p {
-    margin: 0 0 10px;
-  }
-  
-  .profile-card p strong {
-    display: inline-block;
-    width: 80px;
-  }
-  
+}

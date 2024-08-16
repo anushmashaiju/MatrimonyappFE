@@ -4,7 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { setPersonalDetails } from '../../../Redux/userSlice'; // Import action
 import MainNavbar from '../MainNavbar';
-import './Create.css'
+import './Create.css';
+
 const Create = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch(); // Initialize dispatch
@@ -24,7 +25,7 @@ const Create = () => {
     userIncome: '',
     occupation: '',
     height: '',
-    weight:'' ,
+    weight: '',
     complexion: '',
     disability: '',
     religion: '',
@@ -36,6 +37,7 @@ const Create = () => {
     },
     horoscope: '',
   });
+
   useEffect(() => {
     document.body.classList.add('body-background'); // Add background class to body
 
@@ -43,6 +45,7 @@ const Create = () => {
       document.body.classList.remove('body-background'); // Remove background class from body on unmount
     };
   }, []);
+
   const handleChange = (e) => {
     const { name, value } = e.target;
     if (name === 'noOfSiblings' && value === '0') {
@@ -78,7 +81,7 @@ const Create = () => {
 
     try {
       // Send data to backend API
-      await axios.post('http://localhost:8000/user/personal-details', { personalDetails },{withCredentials: true});
+      await axios.post('http://localhost:8000/user/personal-details', { personalDetails }, { withCredentials: true });
 
       // Dispatch personal details to Redux
       dispatch(setPersonalDetails(personalDetails));
@@ -98,7 +101,7 @@ const Create = () => {
     <>
       <MainNavbar />
       <form onSubmit={handleSubmit} className="profile-form">
-        <h2 >Let's create Profile now</h2>
+        <h2>Let's create Profile now</h2>
         <div className="form-group">
           <label htmlFor="formFatherName">Father's Name</label>
           <input type="text" id="formFatherName" name="fatherName" value={personalDetails.fatherName} onChange={handleChange} required />
